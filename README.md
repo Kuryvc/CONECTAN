@@ -1,6 +1,6 @@
 # Conecta N
 
-Programa del juego *Conecta 4* con la variante de que puedes modificar el tablero y el número de fichas que debe tener tu línea para considerarse ganadora convirtiendolo así en un *Conecta N*. Que funciona con tablero y fichas variables por conectar, utilizando interfaz gráfica [raylib](https://github.com/raysan5/raylib). El ganador también se expresa en la consola tantas veces se deseé jugar, hasta que se cierre la ventana emergente del juego.
+Programa del juego *Conecta 4* con la variante de que puedes modificar el tablero y el número de fichas que debe tener tu línea para considerarse ganadora convirtiendolo así en un *Conecta N*. Que funciona con tablero y fichas variables por conectar, utilizando interfaz gráfica [raylib](https://github.com/raysan5/raylib). El ganador también se expresa en la consola tantas veces se deseé jugar, hasta que se cierre la ventana emergente del juego. 
 
 
 ## Requisitos
@@ -15,6 +15,7 @@ Se pueden identificar dichas variables como:
 - *#define COL* //Para definir el número de columnas que habrá en el tablero.
 - *#define ROW* //Para definir el número de renglones/filas que habrá en el tablero.
 - *#define CONECT_N* //Para definir el tamaño de N.
+- Para obtener el código puede hacerse una copia de cada uno de los archivos o clonar el repositorio para tenerlos en tu equipo.
 
 ## Imagen del juego funcionando
 
