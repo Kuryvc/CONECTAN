@@ -115,7 +115,7 @@ int ganoColumna(Juego *juego, int N, Movimiento *mov){
             i = 0;
             renglon++;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -132,7 +132,7 @@ int ganoColumna(Juego *juego, int N, Movimiento *mov){
             i = 0;
             renglon--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -147,7 +147,7 @@ int ganoColumna(Juego *juego, int N, Movimiento *mov){
             i = 0;
             renglon++;
             while (b == 0 && i < juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon && (*(array2 + i))->jugador == 2)
                     b = 1;
                 else
                     i++;
@@ -164,7 +164,7 @@ int ganoColumna(Juego *juego, int N, Movimiento *mov){
             i = 0;
             renglon--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon && (*(array2 + i))->jugador == 2)
                     b = 1;
                 else
                     i++;
@@ -197,10 +197,10 @@ int ganoRenglon(Juego *juego, int N, Movimiento* mov){
         Movimiento **array = juego->jugador1;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             columna++;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -214,10 +214,10 @@ int ganoRenglon(Juego *juego, int N, Movimiento* mov){
         columna = mov->columna;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             columna--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -229,10 +229,10 @@ int ganoRenglon(Juego *juego, int N, Movimiento* mov){
         Movimiento **array2 = juego->jugador1;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             columna++;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && (*(array2 + i))->jugador == 2)
                     b = 1;
                 else
                     i++;
@@ -246,10 +246,10 @@ int ganoRenglon(Juego *juego, int N, Movimiento* mov){
         columna = mov->columna;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             columna--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && (*(array2 + i))->jugador == 2)
                     b = 1;
                 else
                     i++;
@@ -258,8 +258,8 @@ int ganoRenglon(Juego *juego, int N, Movimiento* mov){
         minColumna = columna + 1;
         //int minRenglon = renglon + 1;
     }
-
-    if((maxColumna - N) == minColumna) {
+    int diferencia = N-1;
+    if((maxColumna - diferencia) >= minColumna) {
         printf("Si hay ganador por Renglon J:%d, R:%d, C:%d\n", mov->jugador, mov->renglon, mov->columna);
         return 1;
     }else {
@@ -282,11 +282,11 @@ int ganoDiagonalDerecha(Juego *juego, int N, Movimiento* mov){
         Movimiento **array = juego->jugador1;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon++;
             columna++;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -300,11 +300,11 @@ int ganoDiagonalDerecha(Juego *juego, int N, Movimiento* mov){
         columna = mov->columna;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon--;
             columna--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -316,11 +316,11 @@ int ganoDiagonalDerecha(Juego *juego, int N, Movimiento* mov){
         Movimiento **array2 = juego->jugador1;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon++;
             columna++;
             while (b == 0 && i < juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && (*(array2 + i))->jugador == 2)
                     b = 1;
                 i++;
             }
@@ -333,11 +333,11 @@ int ganoDiagonalDerecha(Juego *juego, int N, Movimiento* mov){
         columna = mov->columna;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon--;
             columna--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && (*(array2 + i))->jugador == 2)
                     b = 1;
                 else
                     i++;
@@ -346,8 +346,8 @@ int ganoDiagonalDerecha(Juego *juego, int N, Movimiento* mov){
         minColumna = columna + 1;
         //int minRenglon = renglon + 1;
     }
-
-    if((maxColumna - N) == minColumna) {
+    int diferencia = N-1;
+    if((maxColumna - diferencia) >= minColumna) {
         printf("Si hay ganador por Diagonal Derecha J:%d, R:%d, C:%d\n", mov->jugador, mov->renglon, mov->columna);
         return 1;
     }else {
@@ -370,11 +370,11 @@ int ganoDiagonalIzquierda(Juego *juego, int N, Movimiento* mov){
         Movimiento **array = juego->jugador1;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon++;
             columna--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -388,11 +388,11 @@ int ganoDiagonalIzquierda(Juego *juego, int N, Movimiento* mov){
         columna = mov->columna;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon--;
             columna++;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && mov->jugador == 1)
+                if ((*(array + i))->columna == columna && (*(array + i))->renglon == renglon  && (*(array + i))->jugador == 1)
                     b = 1;
                 else
                     i++;
@@ -404,11 +404,11 @@ int ganoDiagonalIzquierda(Juego *juego, int N, Movimiento* mov){
         Movimiento **array2 = juego->jugador1;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon++;
             columna--;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && (*(array2 + i))->jugador == 2)
                     b = 1;
                 else
                     i++;
@@ -422,11 +422,11 @@ int ganoDiagonalIzquierda(Juego *juego, int N, Movimiento* mov){
         columna = mov->columna;
         while(b == 1) {
             b = 0;
-            i = 1;
+            i = 0;
             renglon--;
             columna++;
             while (b == 0 && i <= juego->turno) {
-                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && mov->jugador == 2)
+                if ((*(array2 + i))->columna == columna && (*(array2 + i))->renglon == renglon  && (*(array2 + i))->jugador == 2)
                     b = 1;
                 else
                     i++;
@@ -435,8 +435,8 @@ int ganoDiagonalIzquierda(Juego *juego, int N, Movimiento* mov){
         minColumna = columna - 1;
         //int minRenglon = renglon + 1;
     }
-
-    if((maxColumna - N) == minColumna) {
+    int diferencia = N-1;
+    if((minColumna - diferencia) >= maxColumna) {
         printf("Si hay ganador por Diagonal Izquierda J:%d, R:%d, C:%d\n", mov->jugador, mov->renglon, mov->columna);
         return 1;
     }else {
@@ -472,3 +472,22 @@ void printArreglos(Juego * juego){
 /*Queue *regresaCola(Juego *juego){
     return juego->cola;
 }*/
+
+Movimiento **getArray(Juego *juego){
+    return juego->jugador1;
+}
+
+int getTurno(Juego *juego){
+    return juego->turno;
+}
+
+int getCol(Movimiento *mov){
+    return mov->columna;
+}
+int getRen(Movimiento *mov){
+    return mov->renglon;
+}
+
+int getJug(Movimiento *mov){
+    return mov->jugador;
+}
