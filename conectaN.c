@@ -8,7 +8,6 @@
 #include <malloc.h>
 
 
-
 struct movimiento{
     int jugador;
     int renglon;

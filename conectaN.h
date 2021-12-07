@@ -5,7 +5,13 @@
 #ifndef CONECTA4A_CONECTAN_H
 #define CONECTA4A_CONECTAN_H
 
+#define COL 45 //Numero de Columnas del tablero
+#define ROW 20 //Numero de filas del arreglo
+#define CONECT_N 6
 
+
+
+//Para dinámicas del juego
 typedef struct movimiento Movimiento;
 typedef struct juego Juego;
 
@@ -24,6 +30,21 @@ int ganoDiagonalIzquierda(Juego* juego, int N, Movimiento* mov);
 void printArreglos(Juego * juego);
 
 void printArreglos2(Juego * juego);
+
+Movimiento **getArray(Juego *juego);
+
+int getTurno(Juego *juego);
+int getCol(Movimiento *mov);
+int getRen(Movimiento *mov);
+int getJug(Movimiento *mov);
+
+//Para interfaz gráfica
+void DibujarTablero(void);
+void InitGame();
+void Update(int j);
+void DrawGame(Juego *prueba);
+
+
 
 
 #endif //CONECTA4A_CONECTAN_H
