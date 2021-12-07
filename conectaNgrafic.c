@@ -20,7 +20,7 @@ void DibujarTablero(void) {
         DrawLineV((Vector2) {100.2f + ((625.2f / COL) * i), 150}, (Vector2) {100.2f + ((625.2f / COL) * i), 550.2f}, BLACK);
     }
 } //Dibuja rectángulo base y lo divide mediante lineas según las Columnas y Filas
-struct FICHA{ //Estructura con los lementos de las fichas del tablero
+struct FICHA{
     int x;
     int y;
     float radio;
@@ -28,15 +28,15 @@ struct FICHA{ //Estructura con los lementos de las fichas del tablero
     int color_int;
     int filaValida[COL];
 
-};
+};//Estructura con los elementos de las fichas del tablero
 
-struct TURNO{ //Estructura con los elementos de la ficha que representa el turno de jugador
+struct TURNO{
     int x;
     int y;
     float radio;
     Color color;
     int color_int;
-};
+};//Estructura con los elementos de la ficha que representa el turno de jugador
 
 static struct TURNO turn = {0};
 static struct FICHA ficha = {0};
@@ -56,9 +56,9 @@ void InitGame(){ //Inicializa los valores de los elementos de ficha y turno
     ficha.radio = 0;
     ficha.color = RED;
     ficha.color_int = 1;
-};
+};//Inicializa los valores de los elementos de ficha y turno
 
-void Update(int j){ //Actualiza los valores para cada movimiento y ser representados en cada "Frame" de juego
+void Update(int j){
 
     turn.x = 200;
     turn.y = 90;
@@ -87,9 +87,9 @@ void Update(int j){ //Actualiza los valores para cada movimiento y ser represent
         turn.color_int = 2;
     }
 
-};
+};//Actualiza los valores para cada movimiento y ser representados en cada "Frame" de juego
 
-void DrawGame(Juego *prueba){ //Dibuja tablero, botones y fichas
+void DrawGame(Juego *prueba){
 
     int limite = getTurno(prueba);
     Movimiento **arreglo = getArray(prueba);
@@ -100,7 +100,8 @@ void DrawGame(Juego *prueba){ //Dibuja tablero, botones y fichas
 
     DrawText("CONECTA N", 50, 35, 30, BLACK);
     DrawText("TURNO DE: ", 50, 80, 20, BLACK);
-
+    DrawText("Haga click en el boton sobre la columna", 300, 35, 17, BLACK);
+    DrawText("en que desea colocar su ficha", 300, 50, 17, BLACK);
     //GuiTextBox((Rectangle){400, 200}, "Move",30, );
     Rectangle textBox = {800 / 2.0f - 100, 180, 225, 50};
 
@@ -128,6 +129,6 @@ void DrawGame(Juego *prueba){ //Dibuja tablero, botones y fichas
     DrawCircle(turn.x, turn.y, turn.radio, turn.color); //Imprime ficha que representa el turno
 
     EndDrawing();
-}
+}//Dibuja tablero, botones y fichas
 
 

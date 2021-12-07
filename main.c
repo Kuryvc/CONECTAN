@@ -21,12 +21,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "conectaN.h"
-
 #include "raylib.h"
-#define COL 45 //Numero de Columnas del tablero
-#define ROW 20 //Numero de filas del arreglo
-#define CONECT_N 6
-
 #define RAYGUI_IMPLEMENTATION
 #define RAYGUI_SUPPORT_ICONS
 #include "raygui.h"
