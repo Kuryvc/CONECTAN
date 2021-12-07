@@ -5,12 +5,6 @@
 #ifndef CONECTA4A_CONECTAN_H
 #define CONECTA4A_CONECTAN_H
 
-#define COL 45 //Numero de Columnas del tablero
-#define ROW 20 //Numero de filas del arreglo
-#define CONECT_N 6
-
-
-
 //Para dinámicas del juego
 typedef struct movimiento Movimiento;
 typedef struct juego Juego;
