@@ -27,6 +27,13 @@
 #include "raygui.h"
 #undef RAYGUI_IMPLEMENTATION
 
+//Para definir dimensiones de tablero y CONECTA N deseado
+------------------------------------------------------------------------------------------------
+#define COL 45 //Numero de Columnas del tablero
+#define ROW 20 //Numero de filas del arreglo
+#define CONECT_N 6
+------------------------------------------------------------------------------------------------
+    
 
 int main(void) {
     // Initialization
